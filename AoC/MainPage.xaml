@@ -28,6 +28,15 @@
             <ListViewItem>
                 <controls:HeaderedTextBlock x:Name="Day2Part2" Header="Part 2" Text="Unknown" Orientation="Vertical"/>
             </ListViewItem>
+            <ListViewHeaderItem>
+                Day 3
+            </ListViewHeaderItem>
+            <ListViewItem>
+                <controls:HeaderedTextBlock x:Name="Day3Part1" Header="Part 1" Text="Unknown" Orientation="Vertical"/>
+            </ListViewItem>
+            <ListViewItem>
+                <controls:HeaderedTextBlock x:Name="Day3Part2" Header="Part 2" Text="Unknown" Orientation="Vertical"/>
+            </ListViewItem>
         </ListView>
     </Grid>
 </Page>
