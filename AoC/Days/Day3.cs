@@ -1779,25 +1779,22 @@ namespace AoC.Days
                 y.Add(Int32.Parse(sides[1]));
                 z.Add(Int32.Parse(sides[2]));
             }
-            if (x.Count.Equals(y.Count) && y.Count.Equals(z.Count))
+            for (int i = 0; i < x.Count; i = i + 3)
             {
-                for (int i = 0; i < x.Count; i = i + 3)
+                if (IsValidTriangle(x[i], x[i+1], x[i+2]))
                 {
-                    if (IsValidTriangle(x[i], x[i+1], x[i+2]))
-                    {
-                        possibleTriangles++;
-                    }
-                    if (IsValidTriangle(y[i], y[i + 1], y[i + 2]))
-                    {
-                        possibleTriangles++;
-                    }
-                    if (IsValidTriangle(z[i], z[i + 1], z[i + 2]))
-                    {
-                        possibleTriangles++;
-                    }
+                    possibleTriangles++;
                 }
-                return "Possible Triangles: " + possibleTriangles + " out of " + x.Count.ToString() + " triangles";
+                if (IsValidTriangle(y[i], y[i + 1], y[i + 2]))
+                {
+                    possibleTriangles++;
+                }
+                if (IsValidTriangle(z[i], z[i + 1], z[i + 2]))
+                {
+                    possibleTriangles++;
+                }
             }
+            return "Possible Triangles: " + possibleTriangles + " out of " + x.Count.ToString() + " triangles";
         }
     }
 
