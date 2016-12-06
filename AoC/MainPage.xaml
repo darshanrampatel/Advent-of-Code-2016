@@ -12,97 +12,111 @@
         <ScrollViewer>
             <ListView
                 IsDoubleTapEnabled="False"
-                IsHitTestVisible="False"
                 IsHoldingEnabled="False"
                 IsRightTapEnabled="False"
                 IsSwipeEnabled="False"
-                IsTapEnabled="False"
-                ManipulationMode="None"
                 SelectionMode="None">
                 <ListViewHeaderItem>
                     Day 1
                 </ListViewHeaderItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day1Part1_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day1Part1"
                         Header="Part 1"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day1Part2_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day1Part2"
                         Header="Part 2"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
                 <ListViewHeaderItem>
                     Day 2
                 </ListViewHeaderItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day2Part1_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day2Part1"
                         Header="Part 1"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day2Part2_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day2Part2"
                         Header="Part 2"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
                 <ListViewHeaderItem>
                     Day 3
                 </ListViewHeaderItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day3Part1_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day3Part1"
                         Header="Part 1"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day3Part2_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day3Part2"
                         Header="Part 2"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
                 <ListViewHeaderItem>
                     Day 4
                 </ListViewHeaderItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day4Part1_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day4Part1"
                         Header="Part 1"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day4Part2_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day4Part2"
                         Header="Part 2"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
                 <ListViewHeaderItem>
                     Day 5
                 </ListViewHeaderItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day5Part1_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day5Part1"
                         Header="Part 1"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
                 </ListViewItem>
-                <ListViewItem>
+                <ListViewItem Tapped="Day5Part2_Tapped">
                     <controls:HeaderedTextBlock
                         x:Name="Day5Part2"
                         Header="Part 2"
                         Orientation="Vertical"
-                        Text="Unknown" />
+                        Text="Tap to Run" />
+                </ListViewItem>
+                <ListViewHeaderItem>
+                    Day 6
+                </ListViewHeaderItem>
+                <ListViewItem Tapped="Day6Part1_Tapped">
+                    <controls:HeaderedTextBlock
+                        x:Name="Day6Part1"
+                        Header="Part 1"
+                        Orientation="Vertical"
+                        Text="Tap to Run" />
+                </ListViewItem>
+                <ListViewItem Tapped="Day6Part2_Tapped">
+                    <controls:HeaderedTextBlock
+                        x:Name="Day6Part2"
+                        Header="Part 2"
+                        Orientation="Vertical"
+                        Text="Tap to Run" />
                 </ListViewItem>
             </ListView>
         </ScrollViewer>
