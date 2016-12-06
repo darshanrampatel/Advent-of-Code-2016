@@ -20,6 +20,9 @@ namespace AdventOfCode2016
 
             Day3Part1.Text = new Day3().Part1();
             Day3Part2.Text = new Day3().Part2();
+
+            Day4Part1.Text = new Day4().Part1();
+            Day4Part2.Text = new Day4().Part2();
         }
     }
 }
