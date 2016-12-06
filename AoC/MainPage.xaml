@@ -87,6 +87,23 @@
                         Orientation="Vertical"
                         Text="Unknown" />
                 </ListViewItem>
+                <ListViewHeaderItem>
+                    Day 5
+                </ListViewHeaderItem>
+                <ListViewItem>
+                    <controls:HeaderedTextBlock
+                        x:Name="Day5Part1"
+                        Header="Part 1"
+                        Orientation="Vertical"
+                        Text="Unknown" />
+                </ListViewItem>
+                <ListViewItem>
+                    <controls:HeaderedTextBlock
+                        x:Name="Day5Part2"
+                        Header="Part 2"
+                        Orientation="Vertical"
+                        Text="Unknown" />
+                </ListViewItem>
             </ListView>
         </ScrollViewer>
     </Grid>
