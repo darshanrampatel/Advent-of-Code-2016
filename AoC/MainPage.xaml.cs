@@ -4,6 +4,10 @@ using System.Reflection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Microsoft.Toolkit.Uwp.UI;
+using Microsoft.Toolkit.Uwp;
+using Windows.Foundation.Metadata;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 
 namespace AdventOfCode2016
 {
@@ -12,6 +16,17 @@ namespace AdventOfCode2016
         public MainPage()
         {
             this.InitializeComponent();
+
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
+            {
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                if (titleBar != null)
+                {
+                    titleBar.BackgroundColor = Microsoft.Toolkit.Uwp.ColorHelper.ToColor("#0f0f23");
+                    titleBar.ButtonBackgroundColor = Microsoft.Toolkit.Uwp.ColorHelper.ToColor("#0f0f23");
+                }
+            }
+
             var ics = new Style(typeof(ListViewItem));
             var s = new Setter(HorizontalContentAlignmentProperty, HorizontalAlignment.Stretch);
             ics.Setters.Add(s);
