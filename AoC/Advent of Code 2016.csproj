@@ -114,6 +114,13 @@
     <None Include="AoC_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inputs\Day1.txt" />
+    <Content Include="Inputs\Day2.txt" />
+    <Content Include="Inputs\Day3.txt" />
+    <Content Include="Inputs\Day4.txt" />
+    <Content Include="Inputs\Day5.txt" />
+    <Content Include="Inputs\Day6.txt" />
+    <Content Include="Inputs\Day7.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

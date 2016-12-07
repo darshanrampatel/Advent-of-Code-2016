@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -9,7 +10,7 @@ namespace AoC.Days
 {
     class Day5
     {
-        static string input = "uqwqemis";
+        static string input = File.ReadAllText(AppContext.BaseDirectory + "/Inputs/Day5.txt");
 
         public string CalculateMD5Hash(string input)
         {

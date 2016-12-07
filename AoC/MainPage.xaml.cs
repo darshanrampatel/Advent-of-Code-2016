@@ -1,9 +1,9 @@
-﻿using AoC.Days;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using Windows.Foundation;
+using System.Reflection;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Microsoft.Toolkit.Uwp.UI;
 
 namespace AdventOfCode2016
 {
@@ -12,75 +12,97 @@ namespace AdventOfCode2016
         public MainPage()
         {
             this.InitializeComponent();
+            var ics = new Style(typeof(ListViewItem));
+            var s = new Setter(HorizontalContentAlignmentProperty, HorizontalAlignment.Stretch);
+            ics.Setters.Add(s);
+            for (int i = 1; i <= 25; i++)
+            {
+                ListView lv = new ListView()
+                {
+                    ItemContainerStyle = ics
+                };
+                lv.SelectionChanged += ListView_SelectionChanged;
+                var lvhi = new ListViewHeaderItem()
+                {
+                    Name = "Day" + i,
+                    Content = "Day " + i
+                };
+                lvhi.Tapped += ListViewHeaderItem_Tapped;
+                lv.Items.Add(lvhi);
+                for (int part = 1; part <= 2; part++)
+                {
+                    var lvi = new ListViewItem()
+                    {
+                        Name = "Day" + i + "Part" + part
+                    };
+                    lvi.Tapped += ListViewItem_Tapped;
+                    lvi.Content = new HeaderedTextBlock()
+                    {
+                        Name = "AoC.Days.Day" + i + "|Part" + part,
+                        Header = "Part " + part,
+                        Orientation = Orientation.Vertical,
+                        Text = "Tap to run"
+                    };
+                    lv.Items.Add(lvi);
+                }
+                AoC_AdaptiveGridViewGridView.Items.Add(lv);
+            }
         }
 
-        private void Day1Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void ListViewHeaderItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            Day1Part1.Text = new Day1().Part1();
+            var lvhi = (sender as ListViewHeaderItem);
+            var day = lvhi?.Name;
+            var parent = lvhi.Parent as ListView;
+            if (parent != null)
+            {
+                for (int part = 1; part <= 2; part++)
+                {
+                    var item = parent.FindDescendantByName(day + "Part" + part);
+                    if (item != null)
+                    {
+                        ListViewItem_Tapped(item, null);
+                    }
+                }
+            }
         }
 
-        private void Day1Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void ListViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            Day1Part2.Text = new Day1().Part2();
+            var htb = (sender as ListViewItem)?.Content as HeaderedTextBlock;
+            if (htb != null)
+            {
+                var className = htb.Name;
+                if (className != null)
+                {
+                    var day = className.Split('|')?[0];
+                    var part = className.Split('|')?[1];
+                    if (day != null && part != null)
+                    {
+                        Type type = Type.GetType(day);
+                        if (type != null)
+                        {
+                            MethodInfo methodInfo = type.GetMethod(part);
+                            if (methodInfo != null)
+                            {
+                                var instance = Activator.CreateInstance(type);
+                                if (instance != null)
+                                {
+                                    htb.Text = methodInfo.Invoke(instance, null)?.ToString();
+                                    return;
+                                }
+                            }
+
+                        }
+                    }
+                }
+                htb.Text = "Failed to run";
+            }
         }
 
-        private void Day2Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Day2Part1.Text = new Day2().Part1();
-        }
-
-        private void Day2Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day2Part2.Text = new Day2().Part2();
-        }
-
-        private void Day3Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day3Part1.Text = new Day3().Part1();
-        }
-        private void Day3Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day3Part2.Text = new Day3().Part2();
-        }
-
-        private void Day4Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day4Part1.Text = new Day4().Part1();
-        }
-
-        private void Day4Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day4Part2.Text = new Day4().Part2();
-        }
-
-        private void Day5Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day5Part1.Text = new Day5().Part1();
-        }
-
-        private void Day5Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day5Part2.Text = new Day5().Part2();
-        }
-
-        private void Day6Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day6Part1.Text = new Day6().Part1();
-        }
-
-        private void Day6Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day6Part2.Text = new Day6().Part2();
-        }
-
-        private void Day7Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day7Part1.Text = new Day7().Part1();
-        }
-
-        private void Day7Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
-        {
-            Day7Part2.Text = new Day7().Part2();
+            (sender as ListView).SelectedIndex = -1;
         }
     }
 }
