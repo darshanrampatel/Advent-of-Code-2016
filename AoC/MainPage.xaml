@@ -118,6 +118,23 @@
                         Orientation="Vertical"
                         Text="Tap to Run" />
                 </ListViewItem>
+                <ListViewHeaderItem>
+                    Day 7
+                </ListViewHeaderItem>
+                <ListViewItem Tapped="Day7Part1_Tapped">
+                    <controls:HeaderedTextBlock
+                        x:Name="Day7Part1"
+                        Header="Part 1"
+                        Orientation="Vertical"
+                        Text="Tap to Run" />
+                </ListViewItem>
+                <ListViewItem Tapped="Day7Part2_Tapped">
+                    <controls:HeaderedTextBlock
+                        x:Name="Day7Part2"
+                        Header="Part 2"
+                        Orientation="Vertical"
+                        Text="Tap to Run" />
+                </ListViewItem>
             </ListView>
         </ScrollViewer>
     </Grid>

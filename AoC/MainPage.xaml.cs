@@ -72,5 +72,15 @@ namespace AdventOfCode2016
         {
             Day6Part2.Text = new Day6().Part2();
         }
+
+        private void Day7Part1_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Day7Part1.Text = new Day7().Part1();
+        }
+
+        private void Day7Part2_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Day7Part2.Text = new Day7().Part2();
+        }
     }
 }
