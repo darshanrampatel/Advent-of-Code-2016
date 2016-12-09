@@ -181,6 +181,7 @@
     <Content Include="Inputs\Day6.txt" />
     <Content Include="Inputs\Day7.txt" />
     <Content Include="Inputs\Day8.txt" />
+    <Content Include="Inputs\Day9.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
