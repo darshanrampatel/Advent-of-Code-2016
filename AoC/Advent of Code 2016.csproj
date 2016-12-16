@@ -173,6 +173,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Inputs\Day16.txt" />
     <Content Include="Inputs\Day1.txt" />
     <Content Include="Inputs\Day10.txt" />
     <Content Include="Inputs\Day11.txt" />
